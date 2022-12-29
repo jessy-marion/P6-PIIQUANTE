@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
@@ -55,6 +56,7 @@ app.get("/", (req, res, next) => {
 
 app.use("/api/auth", userRoutes);
 app.use("/api/sauces", sauceRoutes);
+app.use("/images/", express.static(path.join(__dirname, "images")));
 
 // app.post("/api/auth/signup", (req, res, next) => {
 //   //ajouter bcrypt et hash le mdp
