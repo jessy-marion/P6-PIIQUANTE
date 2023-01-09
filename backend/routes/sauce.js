@@ -9,8 +9,12 @@ const multer = require("../middleware/multer-config");
 const sauceCtrl = require("../controllers/sauce");
 const app = express();
 
-router.get("/", auth, sauceCtrl.sauce);
-
+router.put("/:id", auth, multer, sauceCtrl.modifySauce);
+router.delete("/:id", auth, sauceCtrl.deleteSauce);
+router.get("/:id", auth, sauceCtrl.sauce);
+router.get("/", auth, sauceCtrl.sauces);
 router.post("/", auth, multer, sauceCtrl.postSauce);
+
+router.post("/:id/like", sauceCtrl.like);
 
 module.exports = router;

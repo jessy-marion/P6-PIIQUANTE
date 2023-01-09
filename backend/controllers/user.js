@@ -8,9 +8,6 @@ const mongoose = require("mongoose");
 const TOKEN_SECRET_KEY = process.env.TSK;
 
 exports.signup = (req, res, next) => {
-  //ajouter bcrypt et hash le mdp
-  console.log(req.body);
-
   bcrypt
     .hash(req.body.password, 10)
     .then((hash) => {
@@ -18,12 +15,13 @@ exports.signup = (req, res, next) => {
         email: req.body.email,
         password: hash,
       });
-      // delete user._id; //id impossible a enlever
-      console.log(user);
+
       user
         .save()
         .then(() => res.status(201).json({ message: "utilisateur crée" }))
-        .catch(() => res.status(400).json({ error }));
+        .catch((error) => {
+          res.status(400).json({ message: error._message });
+        });
     })
     .catch((error) => {
       res.status(500).json({ error });
@@ -59,5 +57,5 @@ exports.login = (req, res, next) => {
         return res.status(401).json({ message: "utilisateur non enregistré" });
       }
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error)); // pas bon ça
 };
