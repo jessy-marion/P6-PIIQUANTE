@@ -3,18 +3,12 @@ const path = require("path");
 const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const { remove } = require("./models/User");
 
 const app = express();
 
 const MY_PORT = process.env.PORT;
 const MONGO_DB_NAME = process.env.NAME;
 const MONGO_DB_PASSWORD = process.env.PW;
-const TOKEN_SECRET_KEY = process.env.TSK;
-
-const User = require("./models/User");
 
 const userRoutes = require("./routes/user");
 const sauceRoutes = require("./routes/sauce");

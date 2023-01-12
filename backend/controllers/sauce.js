@@ -28,8 +28,6 @@ exports.postSauce = (req, res, next) => {
 };
 
 exports.modifySauce = (req, res, next) => {
-  //si il y modification de l'image, trouver un moyen de supprimer l'ancienne
-
   const sauceObj = req.file
     ? {
         ...JSON.parse(req.body.sauce),
@@ -99,7 +97,7 @@ exports.like = (req, res, next) => {
               _id: req.params.id,
             }
           )
-            .then(() => res.status(200).json({ message: "Objet modifié!" }))
+            .then(() => res.status(200).json({ message: "Liked" }))
             .catch(() => res.status(401).json({ message: "error" }));
 
           break;
@@ -119,7 +117,7 @@ exports.like = (req, res, next) => {
               _id: req.params.id,
             }
           )
-            .then(() => res.status(200).json({ message: "Objet modifié!" }))
+            .then(() => res.status(200).json({ message: "Disliked" }))
             .catch(() => res.status(401).json({ message: "error" }));
 
           break;
@@ -147,7 +145,7 @@ exports.like = (req, res, next) => {
               _id: req.params.id,
             }
           )
-            .then(() => res.status(200).json({ message: "Objet modifié!" }))
+            .then(() => res.status(200).json({ message: "Neutral" }))
             .catch(() => res.status(401).json({ message: "error" }));
 
           break;

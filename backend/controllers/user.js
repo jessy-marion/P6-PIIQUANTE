@@ -24,7 +24,7 @@ exports.signup = (req, res, next) => {
         });
     })
     .catch((error) => {
-      res.status(500).json({ error });
+      res.status(500).json({ message: error });
     });
 };
 
@@ -57,5 +57,5 @@ exports.login = (req, res, next) => {
         return res.status(401).json({ message: "utilisateur non enregistré" });
       }
     })
-    .catch((error) => console.log(error)); // pas bon ça
+    .catch((error) => console.log(error));
 };
