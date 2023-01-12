@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 
 const TOKEN_SECRET_KEY = process.env.TSK;
 
+/*Enregistrement d'un user, Hash mdp*/
 exports.signup = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10)
@@ -28,6 +29,7 @@ exports.signup = (req, res, next) => {
     });
 };
 
+/*Connexion de l'user, creation token*/
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {

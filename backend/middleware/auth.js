@@ -4,6 +4,7 @@ dotenv.config();
 
 const TOKEN_SECRET_KEY = process.env.TSK;
 
+/*verification Token*/
 module.exports = (req, res, next) => {
   let token = req.headers["authorization"];
   token = token.replace(/^Bearer\s+/, "");
