@@ -1,5 +1,18 @@
 # P6-Piiquante
 
+Cinquieme projet fait lors de la formation "Developpeur web" d'**OpenClassrooms**
+
+
+
+
+## Objectifs
+Réalisation, à partir d'un cahier des charges, de la partie back-end d'une application d'avis gastronomique. Utilisation de node.js et de son framework express.js. Utilisation de la base de donnée noSQL mongoDB. Hash des mots de passes grâce à BCrypt et création de Token avec JWT.
+## Technos
+
+- Node.js
+- Express.js
+- MongoDB
+
 ## Instruction 
 
 1. creer un dossier images dans le dossier backend
